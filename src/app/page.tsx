@@ -1,11 +1,11 @@
 import React from 'react';
 import FileUpload from './components/FileUpload';
-
+import styles from './page.module.css';
 
 const Home: React.FC = () => {
   return (
-    <div>
-      <h1>File Upload</h1>
+    <div className={styles.container}>
+      <h1>CodeGPT</h1>
       <FileUpload />
     </div>
   );

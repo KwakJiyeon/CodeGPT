@@ -1,0 +1,11 @@
+.fileInput {
+
+}
+
+.container {
+    display: flex;
+  flex-direction: column; /* 세로 배치 */
+  justify-content: space-evenly; /* 요소들 사이와 양쪽에 동일한 간격 배치 */
+  height: 20vh; /* 선택 사항: 전체 높이 사용 */
+  padding: 10px; /* 선택 사항: 컨테이너 안쪽 여백 */
+}

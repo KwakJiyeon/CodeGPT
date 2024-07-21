@@ -1,5 +1,9 @@
 .container {
   display: flex;
-  align-items: stretch;
-  background-color: gray;
-}
+  justify-content: flex-start; /* 요소들을 상단에 배치 */
+  flex-direction: column;
+  align-items: center;
+  height: 100vh; 
+  text-align: center;
+  margin: 0;
+} 

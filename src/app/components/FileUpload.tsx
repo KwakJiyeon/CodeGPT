@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Box, Button, Input, TextField, Typography } from '@mui/material';
+import styles from './fileUpload.module.css';
 
 const FileUpload: React.FC = () => {
   const [files, setFiles] = useState<FileList | null>(null);
@@ -19,13 +20,16 @@ const FileUpload: React.FC = () => {
   };
 
   const handleUpload = async () => {
-    if (!files || !question) {
-      setError('Please provide a question and select files to upload.');
+    if (!question) {
+      setError('Please provide a question to upload.');
       return;
     }
 
     const formData = new FormData();
-    Array.from(files).forEach(file => formData.append('files', file));
+    if(files){
+      Array.from(files).forEach(file => formData.append('files', file));
+    }
+   
     formData.append('question', question);
 
     setLoading(true);
@@ -43,6 +47,7 @@ const FileUpload: React.FC = () => {
 
       setFiles(null);
       setQuestion('');
+      (document.getElementById('file') as HTMLInputElement).value = '';
     } catch (error: any) {
       console.error('Error uploading files:', error);
       setError('Error uploading files. Please try again.');
@@ -55,8 +60,8 @@ const FileUpload: React.FC = () => {
 
   return (
     <div>
-      <form>
-        <div>
+      <form >
+        <div className={styles.fileInput}>
           <Input id="file" name="file" type="file" inputProps={{ multiple: true }} onChange={handleFileChange} />
         </div>
         <div>
