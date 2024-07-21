@@ -70,7 +70,13 @@ const FileUpload: React.FC = () => {
             fullWidth
           />
         </div>
-        <Button variant="contained" color="primary" onClick={handleUpload}>{loading ? 'Loading...' : 'Upload'}</Button>
+        <Button 
+            variant="contained" 
+            color="primary" 
+            onClick={handleUpload}
+            disabled={loading}> 
+              {loading ? 'Loading...' : 'Upload'}
+        </Button>
       </form>
       {error && (
         <Typography color="error" variant="body2">
